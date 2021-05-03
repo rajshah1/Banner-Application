@@ -1,3 +1,8 @@
 index:
     path: /
     controller: App\Controller\BannerController::heropage
+
+# annotations support requires following commands: composer require annotations
+
+# You can access Routes based on @Route Annotations in Controller
+
