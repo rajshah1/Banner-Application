@@ -1,8 +1,7 @@
-
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1 class="MainSign" >
+<h1 class="MainSign">
     Grades Portal - Banner
 </h1>
 
@@ -15,7 +14,7 @@
 
 
 <div>
-     University ID : {{ UID }}
+    University ID : {{ UID }}
     <br>
 </div>
 
@@ -26,13 +25,20 @@
 <br>
 
 
-
-
 <label> click here to see the grades : </label>
-<a href="#">Grade</a>
+<br>
+{% for grade in Grades %}
 
-<p>
-    Author : Raj Shah Systems
-</p>
+<a href="{{ path('app_cid_per',{ courseID:'ITCS-1080' }) }}">
+    {{ grade.subjectName }}
+    <br>
+</a>
 
-{% endblock %}
+{% endfor %}
+
+    <p>
+    <h3>Author : Raj Shah Systems</h3>
+
+    </p>
+
+    {% endblock %}

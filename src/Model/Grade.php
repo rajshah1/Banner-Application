@@ -40,5 +40,12 @@ class Grade
         return $this->subjectName;
     }
 
+/*    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+
+        return "Subject Name : ".$this->getSubjectName()." Got Percentage : ".$this->getPercentage();
+    }*/
+
 
 }
