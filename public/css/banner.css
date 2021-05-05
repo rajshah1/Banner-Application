@@ -1,8 +1,15 @@
-*{
 
+*{
+    font-family: "Roboto Light", serif;
 }
-h1.MainSign{
+.MainSign{
     align-content: center;
     text-align: center;
-
+}
+.dpImage{
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
 }
