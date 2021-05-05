@@ -50,6 +50,9 @@
             "config/packages/security_checker.yaml"
         ]
     },
+    "symfony/asset": {
+        "version": "v5.2.7"
+    },
     "symfony/cache": {
         "version": "v5.2.7"
     },
