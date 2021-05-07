@@ -31,8 +31,8 @@ class BannerController extends AbstractController
         // Grades Object are created .
 
         $gradOne = new Grade(80, "ITCS_6181");
-        $gradTwo = new Grade(80, "ITCS_6000");
-        $gradThree = new Grade(80, "ITCS_6100");
+        $gradTwo = new Grade(90, "ITCS_6000");
+        $gradThree = new Grade(70, "ITCS_6100");
 
         $grades = [$gradOne, $gradTwo, $gradThree];
 
@@ -56,13 +56,22 @@ class BannerController extends AbstractController
     // In Routes If we pass {wildString} then that value can be anything .
     // That can also be accessed via string $courseID in Controller Functions
     /**
-     * @Route("/grades/{courseID}",name="app_cid_per")
+     * @Route("/grades/{courseID}/{percentage}",name="app_cid_per")
      */
-    public function grades(string $courseID): Response
+
+
+ /*   public function grades(string $courseID): Response
     {
         // sprintf('value "%s"',$variableName) Make Sure starting is '';
 
         return new Response('Percentage For Subject is 80%', 200);
+    }*/
+
+    public function grades(string $courseID,int $percentage): Response
+    {
+        // sprintf('value "%s"',$variableName) Make Sure starting is '';
+
+        return new Response(sprintf('Percentage For Subject %s is %s',$courseID,$percentage), 200);
     }
 
 

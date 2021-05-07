@@ -29,7 +29,9 @@
 <br>
 {% for grade in Grades %}
 
-<a href="{{ path('app_cid_per',{ courseID:'ITCS-1080' }) }}">
+
+
+<a href="{{ path('app_cid_per',{ courseID:grade.subjectName,percentage:grade.percentage }) }}">
     {{ grade.subjectName }}
     <br>
 </a>
