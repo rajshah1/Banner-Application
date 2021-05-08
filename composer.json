@@ -1,5 +1,5 @@
 {
-    "name": "bannerApp",
+    "name": "its-rajshah/bannerapp",
     "description": "Banner Application local Dev",
     "type": "project",
     "license": "proprietary",
@@ -65,6 +65,7 @@
         }
     },
     "require-dev": {
+        "phpstan/phpstan": "^0.12.85",
         "symfony/debug-bundle": "^5.2",
         "symfony/monolog-bundle": "^3.0",
         "symfony/stopwatch": "^5.2",
