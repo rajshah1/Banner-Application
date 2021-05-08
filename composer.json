@@ -9,6 +9,7 @@
         "php": ">=7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "phpunit/phpunit": "^9.5",
         "sensio/framework-extra-bundle": "^6.1",
         "sensiolabs/security-checker": "^6.0",
         "symfony/asset": "5.2.*",
