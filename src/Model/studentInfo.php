@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 
 namespace App\Model;
 
@@ -12,25 +12,27 @@ class studentInfo
 {
 
     /**
-     * @var
+     * @var String
      */
     private $name;
+
     /**
-     * @var
+     * @var String
      */
     private $emailID;
+
     /**
-     * @var
+     * @var int
      */
     private $UID;
 
     /**
      * studentInfo constructor.
-     * @param $name
-     * @param $emailID
-     * @param $UID
+     * @param String $name
+     * @param String $emailID
+     * @param int $UID
      */
-    public function __construct($name, $emailID, $UID)
+    public function __construct(String $name,String $emailID,int $UID)
     {
         $this->name = $name;
         $this->emailID = $emailID;
@@ -49,9 +51,9 @@ class studentInfo
     }
 
     /**
-     * @return mixed
+     * @return String
      */
-    public function getName()
+    public function getName():String
     {
         return $this->name;
     }
@@ -65,9 +67,9 @@ class studentInfo
     }
 
     /**
-     * @return mixed
+     * @return String
      */
-    public function getEmailID()
+    public function getEmailID(): String
     {
         return $this->emailID;
     }
@@ -81,9 +83,9 @@ class studentInfo
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getUID()
+    public function getUID(): int
     {
         return $this->UID;
     }

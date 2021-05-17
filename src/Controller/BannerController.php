@@ -55,9 +55,7 @@ class BannerController extends AbstractController
 
     // In Routes If we pass {wildString} then that value can be anything .
     // That can also be accessed via string $courseID in Controller Functions
-    /**
-     * @Route("/grades/{courseID}/{percentage}",name="app_cid_per")
-     */
+
 
 
  /*   public function grades(string $courseID): Response
@@ -66,7 +64,9 @@ class BannerController extends AbstractController
 
         return new Response('Percentage For Subject is 80%', 200);
     }*/
-
+    /**
+     * @Route("/grades/{courseID}/{percentage}",name="app_cid_per")
+     */
     public function grades(string $courseID,int $percentage): Response
     {
         // sprintf('value "%s"',$variableName) Make Sure starting is '';

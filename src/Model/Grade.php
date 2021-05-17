@@ -7,7 +7,7 @@ namespace App\Model;
 class Grade
 {
     /**
-     * @var
+     * @var int
      */
     private $percentage;
     private $subjectName;
@@ -15,27 +15,27 @@ class Grade
 
     /**
      * Grade constructor.
-     * @param $pecentage
-     * @param $subjectName
+     * @param int $percentage
+     * @param String $subjectName
      */
-    public function __construct($percentage, $subjectName)
+    public function __construct(int $percentage, String $subjectName)
     {
         $this->percentage = $percentage;
         $this->subjectName = $subjectName;
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getPercentage()
+    public function getPercentage(): int
     {
         return $this->percentage;
     }
 
     /**
-     * @return mixed
+     * @return String
      */
-    public function getSubjectName()
+    public function getSubjectName(): string
     {
         return $this->subjectName;
     }
