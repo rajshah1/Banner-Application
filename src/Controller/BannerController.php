@@ -49,7 +49,7 @@ class BannerController extends AbstractController
      */
     public function annotationRoute(): Response
     {
-        return new Response('This Path Requires Subject Name Please add subjectName in URL: ', 200);
+        return new Response('This Path Requires Subject Name Please add subjectName in URL: ', Response::HTTP_NOT_FOUND);
     }
 
 
@@ -73,6 +73,4 @@ class BannerController extends AbstractController
 
         return new Response(sprintf('Percentage For Subject %s is %s',$courseID,$percentage), 200);
     }
-
-
 }
