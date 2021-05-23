@@ -7,14 +7,14 @@ web application used by students at university for academic petitions and appeal
 
 1. Fork this Project and pull the Codebase :
    <br/>
-2. Run composer to install Dependencies : Composer install
+2. Run composer to install Dependencies : composer install
    <br/>
 3. Web Pack Package Dependencies Install : yarn install
    <br/>
 4. Web Pack changes lookup : yarn watch
    <br/>
 
-## 1. How to add static files to twig templates via web-pack-encore
+## How to add static files to twig templates via web-pack-encore
 
 https://symfony.com/doc/current/frontend/encore/copy-files.html
 
