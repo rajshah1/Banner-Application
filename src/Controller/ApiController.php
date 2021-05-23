@@ -14,12 +14,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class ApiController
+ * @Route (path="/api",name="api_")
  * @package App\Controller
  */
 class ApiController extends AbstractController
 {
     /**
-     * @Route(path="/api",name="api_entrypoint",condition="")
+     * @Route(path="/",name="entrypoint",condition="")
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @group api
@@ -44,7 +45,7 @@ class ApiController extends AbstractController
 
 
     /**
-     * @Route(name="api_jsonResp",path="/api/json",methods={"POST","GET"})
+     * @Route(name="jsonResp",path="/json",methods={"POST","GET"})
      * @group api
      * @return \Symfony\Component\HttpFoundation\Response
      */
