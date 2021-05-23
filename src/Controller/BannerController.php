@@ -64,13 +64,15 @@ class BannerController extends AbstractController
 
         return new Response('Percentage For Subject is 80%', 200);
     }*/
+
+    // Route How to check if percentage is digit or not and add default value if nothing is present in url.
+    // Same thing in <\w+>?'ITCS' can be done for CourseID.
     /**
-     * @Route("/grades/{courseID}/{percentage}",name="app_cid_per")
+     * @Route("/grades/{courseID<\w+>}/{percentage<\d+>?0}",name="app_cid_per")
      */
     public function grades(string $courseID,int $percentage): Response
     {
         // sprintf('value "%s"',$variableName) Make Sure starting is '';
-
         return new Response(sprintf('Percentage For Subject %s is %s',$courseID,$percentage), 200);
     }
 }
