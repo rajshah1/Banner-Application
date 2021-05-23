@@ -61,7 +61,6 @@ class ApiController extends AbstractController
         $jsonResponse->setContent(json_encode([
             'test'=>'1'
         ]));
-
         return $response;
     }
 
