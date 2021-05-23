@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -20,13 +21,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class ApiController extends AbstractController
 {
     /**
-     * @Route(path="/",name="entrypoint",condition="")
+     * @Route(path="/",name="entrypoint")
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @group api
      */
-    public function publicAPIEntry(Request $request): Response
+    public function publicAPIEntry(Request $request,LoggerInterface $customLoglogger): Response
     {
+        $customLoglogger->info("CustomerLogger At Path : ".$request->getUri());
         $request->headers->set('testKeyPass', 'api Entry Point');
         //dd($request->request->get('ApiPublicSecret'));
         //dd($request);
