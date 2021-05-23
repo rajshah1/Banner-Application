@@ -21,3 +21,15 @@ https://symfony.com/doc/current/frontend/encore/copy-files.html
 Restart ENCORE : Close yarn watch and Re-Run ** yarn watch **
 <br/>
 Run the Command Suggested in error and Re-Run ** yarn watch **
+<br/>
+<br/>
+<br/>
+
+COMMANDS:
+<br/>
+symfony serve
+<br/>
+symfony serve:down<br/>
+symfony console debug:router<br/>
+symfony console debug:router {name}<br/>
+symfony console router:match /{path}
