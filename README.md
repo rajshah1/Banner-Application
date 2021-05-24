@@ -26,6 +26,8 @@ Run the Command Suggested in error and Re-Run ** yarn watch **
 <br/>
 
 COMMANDS:
+
+RUN PHPUNIT LOCALLY: ./vendor/bin/phpunit 
 <br/>
 symfony serve
 <br/>
