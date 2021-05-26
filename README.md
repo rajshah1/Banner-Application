@@ -35,3 +35,8 @@ symfony serve:down<br/>
 symfony console debug:router<br/>
 symfony console debug:router {name}<br/>
 symfony console router:match /{path}
+
+
+## UseFull Commands:
+<br/>
+composer self-update --preview
