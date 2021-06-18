@@ -1,17 +1,16 @@
 monolog:
-    channels: ['customLog']
     handlers:
-        customLog:
-            type: stream
-            path: "%kernel.logs_dir%/customLog.log"
-            level: debug
-            channels: [customLog]
         main:
             type: rotating_file
             path: "%kernel.logs_dir%/%kernel.environment%.log"
             level: debug
-            channels: ["!event","!customLog"]
+            channels: ["!event"]
             max_files: 10
+        customLogging:
+            type: stream
+            path: "%kernel.logs_dir%/customLogging.log"
+            level: debug
+            channels: ["messenger_audit"]
         # uncomment to get logging in your browser
         # you may have to allow bigger header sizes in your Web server configuration
         #firephp:
