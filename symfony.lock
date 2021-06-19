@@ -395,6 +395,12 @@
     "symfony/profiler-pack": {
         "version": "v1.0.5"
     },
+    "symfony/property-access": {
+        "version": "v5.2.10"
+    },
+    "symfony/property-info": {
+        "version": "v5.2.10"
+    },
     "symfony/proxy-manager-bridge": {
         "version": "v5.2.10"
     },
