@@ -35,6 +35,8 @@ symfony serve:down<br/>
 symfony console debug:router<br/>
 symfony console debug:router {name}<br/>
 symfony console router:match /{path}
+<br/>
+symfony console debug:container
 
 
 ## UseFull Commands:
@@ -44,10 +46,6 @@ composer self-update --preview
 
 <br/>
 Update Lock file : composer update --lock
-
-<br/>
-How to update database with latest field changes Doctrine ORM <br/>
-run migration : composer migrations:migrate
 
 <br/>
 push changes to remote without hooks: 
