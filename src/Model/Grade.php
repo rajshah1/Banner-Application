@@ -4,13 +4,27 @@
 namespace App\Model;
 
 
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Class Grade
+ * @package App\Model
+ */
 class Grade
 {
     /**
      * @var int
+     * @Assert\NotBlank(message="Percentage can not be Blank or Null")
+     * @Assert\Range(min=0,max=100,notInRangeMessage="Percentage should be between '{{ min }}' and '{{ max }}' but got '{{ value }}'.")
+     *
      */
-    private $percentage;
-    private $subjectName;
+    private int $percentage;
+    /**
+     * @var String
+     * @Assert\NotBlank(message="SubjectName can not be Blank or Null")
+     * @Assert\Length(exactMessage="Subject Name Should be 9 length",max=9,min=9)
+     */
+    private string $subjectName;
 
 
     /**

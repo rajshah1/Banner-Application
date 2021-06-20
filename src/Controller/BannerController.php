@@ -9,11 +9,13 @@ use App\Model\studentInfo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+use function PHPUnit\Framework\isNull;
 
 class BannerController extends AbstractController
 {
     /** @Route(path="/",name="app_heroPage") */
-    public function heroPage(): Response
+    public function heroPage(ValidatorInterface $validator): Response
     {
         //return new Response('Banner first Controller Created',200);
 
@@ -30,11 +32,17 @@ class BannerController extends AbstractController
 
         // Grades Object are created .
 
-        $gradOne = new Grade(80, "ITCS_6181");
+        $gradOne = new Grade(100, "ITCS_6181");
         $gradTwo = new Grade(90, "ITCS_6000");
         $gradThree = new Grade(70, "ITCS_6100");
 
         $grades = [$gradOne, $gradTwo, $gradThree];
+        $errors = $validator->validate($grades);
+
+        $errorsString = $errors->count() > 0 ? (string) $errors : null;
+        if (is_string($errorsString)) {
+            return new Response($errorsString, 400, ["error" => "Validation Error"]);
+        }
 
         return $this->render('heropage/hero.html.twig', [
             "Name" => $studentInfoObj->getName(),

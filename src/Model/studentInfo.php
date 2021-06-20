@@ -14,17 +14,17 @@ class studentInfo
     /**
      * @var String
      */
-    private $name;
+    private string $name;
 
     /**
      * @var String
      */
-    private $emailID;
+    private string $emailID;
 
     /**
      * @var int
      */
-    private $UID;
+    private int $UID;
 
     /**
      * studentInfo constructor.
@@ -53,15 +53,15 @@ class studentInfo
     /**
      * @return String
      */
-    public function getName():String
+    public function getName(): string
     {
         return $this->name;
     }
 
     /**
-     * @param mixed $name
+     * @param String $name
      */
-    public function setName($name): void
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
@@ -69,15 +69,15 @@ class studentInfo
     /**
      * @return String
      */
-    public function getEmailID(): String
+    public function getEmailID(): string
     {
         return $this->emailID;
     }
 
     /**
-     * @param mixed $emailID
+     * @param String $emailID
      */
-    public function setEmailID($emailID): void
+    public function setEmailID(string $emailID): void
     {
         $this->emailID = $emailID;
     }
@@ -91,15 +91,12 @@ class studentInfo
     }
 
     /**
-     * @param mixed $UID
+     * @param int $UID
      */
-    public function setUID($UID): void
+    public function setUID(int $UID): void
     {
         $this->UID = $UID;
     }
-
-
-
 
 
 }
