@@ -4,8 +4,7 @@ declare(strict_types=1);
 namespace App\Repository;
 
 use App\Entity\User as DoctrineUserEntity;
-use \App\ServiceEntityRepository;
-use Doctrine\Persistence\ManagerRegistry;
+use App\Services\ServiceEntityRepository;
 
 /**
  * @method User|null find($id, $lockMode = null, $lockVersion = null)

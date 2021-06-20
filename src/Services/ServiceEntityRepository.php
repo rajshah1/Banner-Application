@@ -1,10 +1,11 @@
 <?php
+/** @noinspection ReturnTypeCanBeDeclaredInspection */
+/** @noinspection PhpMissingReturnTypeInspection */
 declare(strict_types=1);
 
-namespace App;
+namespace App\Services;
 
 
-use App\Services\DoctrineInterface;
 use \Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository as BaseServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use UnexpectedValueException;
@@ -51,12 +52,12 @@ abstract class ServiceEntityRepository extends BaseServiceEntityRepository
 
 
     /**
-     * @param \App\Services\DoctrineInterface $entity
+     * @param DoctrineInterface $entity
      * @return $this
      * @throws ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function save(DoctrineInterface  $entity):ServiceEntityRepository
+    public function save(DoctrineInterface $entity): ServiceEntityRepository
     {
         $this->getEntityManager()->persist($entity);
         $this->getEntityManager()->flush();

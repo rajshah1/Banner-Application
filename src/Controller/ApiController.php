@@ -5,13 +5,20 @@ declare(strict_types=1);
 namespace App\Controller;
 
 
+use App\Entity\User as DoctrineUserEntity;
+use App\Traits\UserRepositoryTrait;
+use Doctrine\ORM\ORMException;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 /**
  * Class ApiController
@@ -20,6 +27,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ApiController extends AbstractController
 {
+    use UserRepositoryTrait;
+
     /**
      * @Route(path="/",name="entrypoint")
      * @param \Symfony\Component\HttpFoundation\Request $request
@@ -27,9 +36,9 @@ class ApiController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\Response
      * @group api
      */
-    public function publicAPIEntry(Request $request,LoggerInterface $messengerAuditLogger): Response
+    public function publicAPIEntry(Request $request, LoggerInterface $messengerAuditLogger): Response
     {
-        $messengerAuditLogger->info("CustomerLogger At Path : ".$request->getUri());
+        $messengerAuditLogger->info("CustomerLogger At Path : " . $request->getUri());
         $request->headers->set('testKeyPass', 'api Entry Point');
         //dd($request->request->get('ApiPublicSecret'));
         //dd($request);
@@ -52,19 +61,44 @@ class ApiController extends AbstractController
      * @group api
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function jsonResponseAPI():Response
+    public function jsonResponseAPI(): Response
     {
         $response = new Response();
         $response->setContent(json_encode([
-            'name' => 'Raj Shah',
-            'age' => 23
-        ])??null);
+                'name' => 'Raj Shah',
+                'age' => 23
+            ]) ?? null);
         $response->headers->set('Content-Type', 'application/json');
-        $jsonResponse=new JsonResponse();
+        $jsonResponse = new JsonResponse();
         $jsonResponse->setContent(json_encode([
-            'test'=>'1'
+            'test' => '1'
         ]));
         return $response;
+    }
+
+    /**
+     * @Route (path="/create/user",name="create_user",methods={"POST"})
+     * @param Request $request
+     * @param \Psr\Log\LoggerInterface $messengerAuditLogger
+     * @return Response
+     * @throws ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
+     */
+    public function addUserToDB(Request $request, LoggerInterface $messengerAuditLogger): Response
+    {
+        $messengerAuditLogger->info("Inside addUserToDB Method : Request Obj Captured : \n" . $request->getContent());
+
+        $userobj = $request->toArray();
+        // todo Create a serializerTrait which can be centerized.
+        $normalizers = [new ObjectNormalizer(null, null, null, new ReflectionExtractor()), new DateTimeNormalizer()];
+        $serializer = new Serializer($normalizers);
+        //
+        /** @var DoctrineUserEntity $test */
+        $test = $serializer->denormalize($userobj, DoctrineUserEntity::class);
+
+        $this->getUserRepository()->save($test);
+        return $this->json(["code"=>"success"]);
     }
 
 
