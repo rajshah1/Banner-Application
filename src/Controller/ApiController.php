@@ -89,16 +89,18 @@ class ApiController extends AbstractController
     {
         $messengerAuditLogger->info("Inside addUserToDB Method : Request Obj Captured : \n" . $request->getContent());
 
-        $userobj = $request->toArray();
+        $userBodyArray = $request->toArray();
         // todo Create a serializerTrait which can be centerized.
         $normalizers = [new ObjectNormalizer(null, null, null, new ReflectionExtractor()), new DateTimeNormalizer()];
         $serializer = new Serializer($normalizers);
-        //
-        /** @var DoctrineUserEntity $test */
-        $test = $serializer->denormalize($userobj, DoctrineUserEntity::class);
+        // Denormalize Array to Object Then TypeCast to UserEntity
+        /** @var DoctrineUserEntity $user */
+        $user = $serializer->denormalize($userBodyArray, DoctrineUserEntity::class);
 
-        $this->getUserRepository()->save($test);
-        return $this->json(["code"=>"success"]);
+        $this->getUserRepository()->save($user);
+
+        $messengerAuditLogger->info("DB User Saved with ID " . $user->getId());
+        return $this->json(["code" => "success"]);
     }
 
 
