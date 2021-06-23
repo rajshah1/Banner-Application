@@ -100,10 +100,10 @@ class ApiController extends AbstractController
         $this->getUserRepository()->save($user);
         // Search Query with Default Methods:
 
-        /*$searchQueryResult=$this->getUserRepository()->findBy(['pidm' => 100506],['name' =>'ASC']);
+        $searchQueryResult = $this->getUserRepository()->findBy(['pidm' => [1088]], ['name' => 'ASC']);
 
-        is_null($searchQueryResult)?$messengerAuditLogger->info('Result size is 0 / null.Please Check the Query.'):
-            $messengerAuditLogger->debug('Query Result is ',['user' => $searchQueryResult[0]->getId() ]);*/
+        empty($searchQueryResult) ? $messengerAuditLogger->info('Result size is 0 / null.Please Check the Query.') :
+            $messengerAuditLogger->debug('Query Result is ', $searchQueryResult);
 
         $messengerAuditLogger->info("DB User Saved with ID " . $user->getId());
         return $this->json(["code" => "success"]);
