@@ -117,4 +117,11 @@ class User implements DoctrineInterface
     {
         $this->emailID = $emailID;
     }
+
+    public function __toString()
+    {
+        return sprintf("ID : %d  \n Name : %s \n PIDM : %d \n  Date Created : %s",$this->getId(),$this->getName(),$this->getPidm(),$this->getDateCreated()->format('Y-m-d'));
+    }
+
+
 }
