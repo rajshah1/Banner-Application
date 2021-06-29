@@ -23,8 +23,8 @@ services:
       - database:/var/lib/mysql:delegated
   php:
     build:
-      context: ./docker/php
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./docker/php/Dockerfile
     depends_on:
       - "db"
     container_name: ${APP_NAME}-fpm
