@@ -25,6 +25,10 @@ Run the Command Suggested in error and Re-Run ** yarn watch **
 <br/>
 <br/>
 
+Fetch New Router info to javascript (Router.js) :
+composer assets:dev
+<br/>
+<br/>
 COMMANDS:
 
 RUN PHPUNIT LOCALLY: ./vendor/bin/phpunit 
@@ -90,5 +94,6 @@ composer legacy:migrate -- -t admin-users
    2.2 symfony console make:migration
 <br/>
    2.2 symfony console doctrine:migration:migrate
+
 
 
