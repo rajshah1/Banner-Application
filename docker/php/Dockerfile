@@ -48,13 +48,15 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 
 RUN php -- /bin/composer self-update --2
 
-WORKDIR /usr/local/apache2/htdocs/docker/php
+WORKDIR /usr/local/apache2/htdocs
 
 RUN chown -R www-data:www-data .
 RUN chown -R www-data:www-data /var/www
 RUN chown -R www-data:www-data /usr/local/var/log
 
-COPY ./entrypoint.sh /usr/local/bin
+COPY ./docker/php/entrypoint.sh /usr/local/bin
+COPY ./docker/php/php-ini-overrides.ini /usr/local/etc/php/conf.d/99-overrides.ini
+COPY ./docker/php/www.conf.templ /usr/local/etc/php-fpm.d/www.conf
 
 USER www-data
 
