@@ -1,1 +1,15 @@
 @import "~bootstrap/scss/bootstrap";
+
+
+*{
+  font-family: Roboto, Arial, sans-serif;
+}
+
+
+.dpImage{
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
