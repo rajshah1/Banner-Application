@@ -6,8 +6,11 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import './styles/app.css';
-const $=require('jquery');
-require('bootstrap');
+import '../styles/app.css';
+import $ from 'jquery';
+
 // start the Stimulus application
-import './bootstrap';
+
+$(".MainSign").on("click", function () {
+    console.log("Test");
+})

@@ -1,46 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1 class="MainSign">
-    Grades Portal - Banner
-</h1>
+    <h1 class="MainSign text-center">
+        Grades Portal - Banner
+    </h1>
 
-<img class="dpImage" src="{{ asset('build/images/raj.jpeg') }}">
+    <img class="dpImage" src="{{ asset('build/images/raj.jpeg') }}">
 
-<div>
-    Student Name : {{ Name }}
+    <div>
+        Student Name : {{ Name }}
+        <br>
+    </div>
+
+
+    <div>
+        University ID : {{ UID }}
+        <br>
+    </div>
+
+    <div>
+        Email ID : {{ EmailID }}
+        <br>
+    </div>
     <br>
-</div>
 
-
-<div>
-    University ID : {{ UID }}
+    <label> click here to see the grades : </label>
     <br>
-</div>
-
-<div>
-    Email ID : {{ EmailID }}
-    <br>
-</div>
-<br>
-
-
-<label> click here to see the grades : </label>
-<br>
-{% for grade in Grades %}
-
-
-
-<a href="{{ path('app_cid_per',{ courseID:grade.subjectName,percentage:grade.percentage }) }}">
-    {{ grade.subjectName }}
-    <br>
-</a>
-
-{% endfor %}
-
+    {% for grade in Grades %}
+        <a href="{{ path('app_cid_per',{ courseID:grade.subjectName,percentage:grade.percentage }) }}">
+            {{ grade.subjectName }}
+            <br>
+        </a>
+    {% endfor %}
     <p>
     <h3>Author : Raj Shah Systems</h3>
-
     </p>
 
-    {% endblock %}
+{% endblock %}
