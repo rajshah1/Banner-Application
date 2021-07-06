@@ -86,7 +86,7 @@ composer legacy:migrate -- -t admin-users
 1.2 symfony console make:migration
 <br/>
 1.3 symfony console doctrine:migrations:migrate
-   
+   <br/>
 2. Update the existing entity in DB also
 <br/>
    2.1 Update the Entity Class add or Delete or Modify fields
